@@ -91,3 +91,28 @@ resource "aws_security_group" "prod_web" {
 #  security_groups      = [aws_security_group.prod_web.id]
 #  web_app	       = "prod"
 #}
+
+resource "aws_s3_bucket_policy" "prod_tf_coursepolicy" {
+  bucket = aws_s3_bucket.prod_tf_course.id
+
+  policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "prod_tf_course-restrict-access-to-users-or-roles",
+      "Effect": "Allow",
+      "Principal": [
+        {
+          "AWS": [
+            "<aws_policy_role_arn>"
+          ]
+        }
+      ],
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::prod_tf_course/*"
+    }
+  ]
+}
+POLICY
+}
