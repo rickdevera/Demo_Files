@@ -20,7 +20,7 @@ variable "web_min_size" {
 provider "aws" {
   profile                 = "default"
   region                  = "us-west-2"
-  shared_credentials_file = "$HOME/.aws/credentials"
+  shared_credentials_files = "$HOME/.aws/credentials"
 }
 
 resource "aws_s3_bucket" "prod_tf_course" {
