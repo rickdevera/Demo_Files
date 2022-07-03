@@ -1,2 +1,10 @@
 accurics_report_terrascan.html
 accurics_report_terrascan.json
+.DS_Store
+Demo_File.cfg
+.vscode/settings.json
+accurics_report.html
+.terraform.lock.hcl
+.gitignore
+accurics_report.json
+.terraform/providers/registry.terraform.io/hashicorp/aws/4.21.0/darwin_arm64/terraform-provider-aws_v4.21.0_x5
