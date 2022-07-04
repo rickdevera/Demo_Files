@@ -85,5 +85,6 @@ resource "aws_security_group" "prod_web" {
 
   tags = {
     "Terraform" : "true"
+    "Tenable.cs"   : "true"
   }
 }
