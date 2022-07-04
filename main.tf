@@ -44,12 +44,18 @@ resource "aws_s3_bucket" "prod_tf_course" {
   }
 }
 
-resource "aws_default_vpc" "default" {}
+resource "aws_default_vpc" "default" {
+  tags = {
+    "DEMO" = "true"
+  }
+
+}
 
 resource "aws_default_subnet" "default_az1" {
   availability_zone = "us-west-2a"
   tags = {
     "Terraform" : "true"
+    "DEMO" = "true"
   }
 }
 
@@ -57,6 +63,7 @@ resource "aws_default_subnet" "default_az2" {
   availability_zone = "us-west-2b"
   tags = {
     "Terraform" : "true"
+    "DEMO" = "true"
   }
 }
 
@@ -68,15 +75,15 @@ resource "aws_security_group" "prod_web" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-//  cidr_blocks = ["0.0.0.0/0"]
-    cidr_blocks = ["172.31.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
+//    cidr_blocks = ["172.31.0.0/16"]
   }
   ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-//    cidr_blocks = ["0.0.0.0/0"]
-    cidr_blocks = ["172.31.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
+//    cidr_blocks = ["172.31.0.0/16"]
   }
   egress {
     from_port   = 0
