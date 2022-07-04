@@ -37,7 +37,7 @@ resource "aws_s3_bucket" "prod_tf_course" {
 
     website {
       index_document = "index.html"
-      error_document - 'error.html'
+      error_document - "error.html"
       
     }
 
@@ -50,7 +50,6 @@ resource "aws_s3_bucket" "prod_tf_course" {
       }
     }
   }
-}
 
 resource "aws_default_vpc" "default" {
   tags = {
