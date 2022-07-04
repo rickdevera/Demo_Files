@@ -31,7 +31,7 @@ resource "aws_s3_bucket" "prod_tf_course" {
   }
 
   versioning {
-//    enabled    = true  
+    enabled    = true  
 //    mfa_delete = true
   }
 
