@@ -28,12 +28,20 @@ resource "aws_s3_bucket" "prod_tf_course" {
   acl    = "private"
   tags = {
     "Terraform" : "true"
-  }
+    "DEMO" = "true"
+    }
 
-  versioning {
-    enabled    = true  
-//    mfa_delete = true
-  }
+    versioning {
+      enabled    = true  
+    }
+
+    website {
+      index_document = "index.html"
+      error_document - 'error.html'
+      
+    }
+
+} 
 
   server_side_encryption_configuration {
     rule {
