@@ -37,7 +37,7 @@ resource "aws_s3_bucket" "prod_tf_course" {
 
     website {
       index_document = "index.html"
-      error_document - "error.html"
+      error_document = "error.html"
       
     }
 
