@@ -68,7 +68,7 @@ resource "aws_security_group" "prod_web" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = var.whitelist
+    cidr_blocks = ["<cidr>"]
   }
   ingress {
     from_port   = 443
