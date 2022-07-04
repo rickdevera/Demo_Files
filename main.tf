@@ -97,3 +97,13 @@ resource "aws_security_group" "prod_web" {
     "DEMO"   : "true"
   }
 }
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-830c94e3"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+    Tenable = "FA"
+  }
+}
