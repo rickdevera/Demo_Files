@@ -18,9 +18,9 @@ variable "web_min_size" {
 }
 
 provider "aws" {
-  profile                 = "default"
-  region                  = "us-west-2"
-//  shared_credentials_files = "$HOME/.aws/credentials"
+  profile = "default"
+  region  = "us-west-2"
+  //  shared_credentials_files = "$HOME/.aws/credentials"
 }
 
 resource "aws_s3_bucket" "prod_tf_course" {
@@ -29,20 +29,20 @@ resource "aws_s3_bucket" "prod_tf_course" {
   tags = {
     "Terraform" : "true"
     "DEMO" = "true"
-    }
+  }
 
-    versioning {
-      enabled    = true  
-    }
+  versioning {
+    enabled = true
+  }
 
-    website {
-      index_document = "index.html"
-      error_document = "error.html"
-      
-    }
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+
+  }
 
   server_side_encryption_configuration {
-     rule {
+    rule {
       apply_server_side_encryption_by_default {
         sse_algorithm = "AES256"
       }
@@ -90,7 +90,7 @@ resource "aws_security_group" "prod_web" {
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-//    cidr_blocks = ["172.31.0.0/16"]
+    //    cidr_blocks = ["172.31.0.0/16"]
   }
   egress {
     from_port   = 0
@@ -101,6 +101,6 @@ resource "aws_security_group" "prod_web" {
 
   tags = {
     "Terraform" : "true"
-    "DEMO"   : "true"
+    "DEMO" : "true"
   }
 }
