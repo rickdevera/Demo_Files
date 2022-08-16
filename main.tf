@@ -125,3 +125,9 @@ resource "aws_s3_bucket_policy" "prod_tf_coursepolicy" {
 }
 POLICY
 }
+resource "aws_s3_bucket_versioning" "prod_tf_course-5VersionConfig" {
+  bucket = aws_s3_bucket.prod_tf_course-5.bucket
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
