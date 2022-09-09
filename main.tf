@@ -18,9 +18,9 @@ variable "web_min_size" {
 }
 
 provider "aws" {
-  profile = "demoprofile"
   region  = "us-west-2"
-  shared_credentials_files = "$HOME/.aws/credentials"
+  shared_credentials_files = [ "$HOME/.aws/credentials" ]
+  profile = "demoprofile"
 }
 
 #  The configuration for the `remote` backend.
