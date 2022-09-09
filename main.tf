@@ -23,6 +23,20 @@ provider "aws" {
   //  shared_credentials_files = "$HOME/.aws/credentials"
 }
 
+#  The configuration for the `remote` backend.
+terraform {
+  backend "remote" {
+  # The name of your Terraform Cloud organization.
+    organization = "Tenable"
+
+    # The name of the Terraform Cloud workspace to store Terraform state files in.
+    workspaces {
+      name = "User-Demo-workspace"
+    }
+  }
+}
+
+
 resource "aws_s3_bucket" "prod_tf_course" {
   bucket = "tf-course-mytest2020"
   acl    = "private"
@@ -83,14 +97,14 @@ resource "aws_security_group" "prod_web" {
     to_port   = 80
     protocol  = "tcp"
 //    cidr_blocks = ["0.0.0.0/0"]
-    cidr_blocks = ["172.31.0.0/16"]
+    cidr_blocks = ["172.31.0.0/28"]
   }
   ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
 //    cidr_blocks = ["0.0.0.0/0"]
-    cidr_blocks = ["172.31.0.0/16"]
+    cidr_blocks = ["172.31.0.0/28"]
   }
   egress {
     from_port   = 0
