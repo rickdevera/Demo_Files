@@ -18,7 +18,7 @@ variable "web_min_size" {
 }
 
 provider "aws" {
-  profile = "default"
+  profile = "demoprofile"
   region  = "us-west-2"
   shared_credentials_files = "$HOME/.aws/credentials"
 }
