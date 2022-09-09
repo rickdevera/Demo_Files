@@ -24,17 +24,18 @@ provider "aws" {
 }
 
 #  The configuration for the `remote` backend.
-terraform {
-  backend "remote" {
-  # The name of your Terraform Cloud organization.
-    organization = "Tenable"
+#  for runnining in github actions
+#terraform {
+#  backend "remote" {
+#  # The name of your Terraform Cloud organization.
+#    organization = "Tenable"
 
-    # The name of the Terraform Cloud workspace to store Terraform state files in.
-    workspaces {
-      name = "User-Demo-workspace"
-    }
-  }
-}
+#    # The name of the Terraform Cloud workspace to store Terraform state files in.
+#    workspaces {
+#      name = "User-Demo-workspace"
+#    }
+#  }
+#}
 
 resource "aws_s3_bucket" "prod_tf_course" {
   bucket = "tf-course-mytest2020"
